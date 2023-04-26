@@ -20,7 +20,7 @@ class AccountRepository
     @stored_accounts ||= begin
       csv = CSV.read(accounts_filename)
       csv.each_with_object({}) do |row, mem|
-        mem[row[0]] = row[1]
+        mem[row[0]] = (row[1].to_f * 100).to_i
       end
     end
   end

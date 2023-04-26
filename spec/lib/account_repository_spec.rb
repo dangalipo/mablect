@@ -10,8 +10,8 @@ RSpec.describe AccountRepository do
     subject(:all) { repo.all }
 
     specify { expect(all.first.account_number).to eq('1111234522226789') }
-    specify { expect(all.first.balance).to eq('5000.00') }
+    specify { expect(all.first.balance).to eq(500000) }
     specify { expect(all.last.account_number).to eq('3212343433335755') }
-    specify { expect(all.last.balance).to eq('50000.00') }
+    specify { expect(all.last.balance).to eq(5000000) }
   end
 end
