@@ -20,4 +20,10 @@ def run(accounts_filename, transactions_filename)
   end
 end
 
-run(ARGV[0], ARGV[1]) if $PROGRAM_NAME == __FILE__
+if $PROGRAM_NAME == __FILE__
+  if ARGV.length == 2
+    run(ARGV[0], ARGV[1])
+  else
+    puts 'Usage lib/transaction_processor_runner.rb <path to accounts csv> <path to transactions csv>'
+  end
+end
