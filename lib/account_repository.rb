@@ -4,6 +4,8 @@ require_relative 'account'
 require 'csv'
 
 class AccountRepository
+  class AccountNotFound < StandardError; end
+
   def initialize(accounts_filename:)
     @accounts_filename = accounts_filename
   end
@@ -14,6 +16,12 @@ class AccountRepository
     end
   end
 
+  def find(account_number)
+    balance = stored_accounts[account_number]
+    raise AccountNotFound, "Could not find account number #{account_number}" if balance.nil?
+
+    Account.new(account_number:, balance:)
+  end
   private
 
   def stored_accounts
