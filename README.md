@@ -22,3 +22,5 @@ Run the following commands
 You can run the system with the sample files using the following command:
 
 `ruby lib/transaction_processor_runner.rb examples/mable_acc_balance.csv examples/mable_trans.csv` 
+
+The result will be in the file `output.csv` in the main directory
