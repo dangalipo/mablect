@@ -10,7 +10,7 @@ class Account
     @balance = balance
   end
 
-  def widthdraw(amount)
+  def widthdraw(amount:)
     raise ArgumentError, 'Widthdrawl amount must be positive' if amount.negative?
 
     new_balance = balance - amount
@@ -22,7 +22,7 @@ class Account
     end
   end
 
-  def deposit(amount)
+  def deposit(amount:)
     raise ArgumentError, 'Deposit amount must be positive' if amount.negative?
 
     new_balance = balance + amount

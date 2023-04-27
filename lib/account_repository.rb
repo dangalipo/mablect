@@ -16,14 +16,14 @@ class AccountRepository
     end
   end
 
-  def find(account_number)
+  def find(account_number:)
     balance = stored_accounts[account_number]
     raise AccountNotFound, "Could not find account number #{account_number}" if balance.nil?
 
     Account.new(account_number:, balance:)
   end
 
-  def persist(account)
+  def persist(account:)
     stored_accounts[account.account_number] = account.balance
   end
 

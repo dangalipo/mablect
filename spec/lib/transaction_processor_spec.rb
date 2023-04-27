@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require_relative '../../lib/transaction_processor'
 require_relative '../../lib/account_repository'
 
 RSpec.describe TransactionProcessor do
   let(:accounts_filename) { 'spec/fixtures/mable_acc_balance.csv' }
   let(:transactions_filename) { 'spec/fixtures/mable_trans.csv' }
-  let(:repo) { AccountRepository.new(accounts_filename: accounts_filename) }
-  let(:processor) { described_class.new(transactions_filename: transactions_filename) }
+  let(:repo) { AccountRepository.new(accounts_filename:) }
+  let(:processor) { described_class.new(transactions_filename:) }
 
-  subject(:accounts)  do
+  subject(:accounts) do
     processor.process(repository: repo)
     repo.all
   end

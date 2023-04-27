@@ -7,7 +7,7 @@ RSpec.describe Account do
   let(:account) { described_class.new(account_number:, balance:) }
 
   describe '#widthdraw' do
-    subject(:widthdraw) { account.widthdraw(amount) }
+    subject(:widthdraw) { account.widthdraw(amount:) }
 
     context 'amount is positive' do
       let(:amount) { 10 }
@@ -52,7 +52,7 @@ RSpec.describe Account do
 
   describe '#deposit' do
     let(:amount) { 10 }
-    subject(:deposit) { account.deposit(amount) }
+    subject(:deposit) { account.deposit(amount:) }
     let(:balance) { 11 }
 
     context 'amount is positive' do

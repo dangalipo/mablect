@@ -8,14 +8,14 @@ class Transaction
   end
 
   def process(repository:)
-    from_account = repository.find(from_account_number)
-    to_account = repository.find(to_account_number)
+    from_account = repository.find(account_number: from_account_number)
+    to_account = repository.find(account_number: to_account_number)
 
-    from_account.widthdraw(amount)
-    to_account.deposit(amount)
+    from_account.widthdraw(amount:)
+    to_account.deposit(amount:)
 
-    repository.persist(from_account)
-    repository.persist(to_account)
+    repository.persist(account: from_account)
+    repository.persist(account: to_account)
   end
 
   private
