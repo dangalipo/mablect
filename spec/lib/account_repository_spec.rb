@@ -33,5 +33,15 @@ RSpec.describe AccountRepository do
       end
     end
   end
+
+  describe '#persist' do
+    let(:account_number) { '3212343433335755' }
+    let(:account) { Account.new(account_number:, balance: 10) }
+
+    subject(:persist) { repo.persist(account) }
+
+    specify do
+      expect { persist }.to change { repo.find(account_number).balance }.from(5_000_000).to(10)
+    end
   end
 end

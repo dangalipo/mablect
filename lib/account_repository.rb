@@ -22,6 +22,11 @@ class AccountRepository
 
     Account.new(account_number:, balance:)
   end
+
+  def persist(account)
+    stored_accounts[account.account_number] = account.balance
+  end
+
   private
 
   def stored_accounts
